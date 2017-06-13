@@ -7,6 +7,8 @@ import java.util.List;
 
 public class Board {
     private List<Cell> cells = new ArrayList<>();
+    private final Integer MAX_ROW_INDEX = 2;
+    private final Integer MAX_COL_INDEX = 2;
 
     public List<Cell> getCells() {
         return cells;
