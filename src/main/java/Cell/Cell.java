@@ -30,12 +30,4 @@ public class Cell {
     public void clear() {
         this.content = Seed.EMPTY;
     }
-
-    public int getRow() {
-        return row;
-    }
-
-    public int getCol() {
-        return col;
-    }
 }
