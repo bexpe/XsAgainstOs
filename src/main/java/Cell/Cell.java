@@ -22,7 +22,7 @@ public class Cell {
 
     public void setContent(Seed content) throws CellNotEmptyException {
         if (this.content != Seed.EMPTY) {
-            throw new CellNotEmptyException("Cell must be empty!")
+            throw new CellNotEmptyException("Cell must be empty!");
         }
         this.content = content;
     }
