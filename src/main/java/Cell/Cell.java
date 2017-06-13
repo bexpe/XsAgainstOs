@@ -27,7 +27,7 @@ public class Cell {
         this.content = content;
     }
 
-    public clear() {
+    public void clear() {
         this.content = Seed.EMPTY;
     }
 
