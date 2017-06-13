@@ -1,6 +1,7 @@
 package Cell;
 
 import enums.Seed;
+import exceptions.CellNotEmptyException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -33,7 +34,7 @@ class CellTest {
         }
 
         @Test
-        void testIfContentIsEMPTYAfterClear() {
+        void testIfContentIsEMPTYAfterClear() throws CellNotEmptyException {
             Seed newContent = Seed.CROSS;
             cell.setContent(newContent);
             cell.clear();
