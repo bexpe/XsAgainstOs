@@ -1,6 +1,7 @@
 package Cell;
 
 import enums.Seed;
+import exceptions.CellNotEmptyException;
 
 public class Cell {
     private Seed content = Seed.EMPTY;
@@ -17,6 +18,17 @@ public class Cell {
 
     public Seed getContent() {
         return content;
+    }
+
+    public void setContent(Seed content) throws CellNotEmptyException {
+        if (this.content != Seed.EMPTY) {
+            throw new CellNotEmptyException("Cell must be empty!")
+        }
+        this.content = content;
+    }
+
+    public clear() {
+        this.content = Seed.EMPTY;
     }
 
     public int getRow() {
