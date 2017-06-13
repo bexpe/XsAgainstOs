@@ -15,6 +15,11 @@ class CellTest {
         void testIfConstructorThrowsExceptionWhenRowLT0() {
             assertThrows(IllegalArgumentException.class, () -> new Cell(-1, 0));
         }
+
+        @Test
+        void testIfConstructorThrowsExceptionWhenColLT0() {
+            assertThrows(IllegalArgumentException.class, () -> new Cell(2, -6));
+        }
     }
 
     @Nested
