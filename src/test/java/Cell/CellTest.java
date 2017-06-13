@@ -39,7 +39,7 @@ class CellTest {
         }
 
         @Test
-        void testIfContentIsEMPTYAfterClear() throws CellNotEmptyException {
+        void testIfContentIsEmptyAfterClear() throws CellNotEmptyException {
             Seed newContent = Seed.CROSS;
             cell.setContent(newContent);
             cell.clear();
