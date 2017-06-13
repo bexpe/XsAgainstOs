@@ -45,6 +45,14 @@ class CellTest {
             cell.clear();
             assertEquals(Seed.EMPTY, cell.getContent());
         }
+
+        @Test
+        void testIfSetContentThrowsExceptionWhenContentIsNotEmpty() throws CellNotEmptyException {
+            Seed contentCross = Seed.CROSS;
+            Seed contentNought = Seed.NOUGHT;
+            cell.setContent(contentCross);
+            assertThrows(CellNotEmptyException.class, () -> cell.setContent(contentNought));
+        }
     }
 
 }
