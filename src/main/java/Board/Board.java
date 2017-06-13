@@ -13,9 +13,9 @@ public class Board {
     }
 
     public void init() {
-        for (int i=0; i<3; i++) {
-            for (int j=0; j<3; j++) {
-                Cell cell = new Cell(i, j);
+        for (Integer row = 0; row < 3; row++) {
+            for (Integer col = 0; col < 3; col++) {
+                Cell cell = new Cell(row, col);
                 cells.add(cell);
             }
         }
