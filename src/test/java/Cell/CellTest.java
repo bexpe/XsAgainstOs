@@ -13,12 +13,16 @@ class CellTest {
     class ConstructorTests {
         @Test
         void testIfConstructorThrowsExceptionWhenRowLT0() {
-            assertThrows(IllegalArgumentException.class, () -> new Cell(-1, 0));
+            Integer row = -2;
+            Integer col = 2;
+            assertThrows(IllegalArgumentException.class, () -> new Cell(row, col));
         }
 
         @Test
         void testIfConstructorThrowsExceptionWhenColLT0() {
-            assertThrows(IllegalArgumentException.class, () -> new Cell(2, -6));
+            Integer row = 2;
+            Integer col = -2;
+            assertThrows(IllegalArgumentException.class, () -> new Cell(row, col));
         }
     }
 
@@ -28,8 +32,8 @@ class CellTest {
 
         @BeforeEach
         void setUp() {
-            int row = 2;
-            int col = 3;
+            Integer row = 1;
+            Integer col = 2;
             this.cell = new Cell(row, col);
         }
 
