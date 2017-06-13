@@ -1,6 +1,7 @@
 package Board;
 
 import Cell.Cell;
+import enums.Seed;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,4 +23,14 @@ public class Board {
             }
         }
     }
+
+    public Boolean isDraw() {
+        for (Cell cell: cells) {
+            if (cell.getContent() == Seed.EMPTY) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
