@@ -22,11 +22,21 @@ class CellTest {
 
         @BeforeEach
         void setUp() {
-            this.cell = new Cell(2,3);
+            int row = 2;
+            int col = 3;
+            this.cell = new Cell(row, col);
         }
 
         @Test
         void testIfDefaultContentIsEmpty() {
+            assertEquals(Seed.EMPTY, cell.getContent());
+        }
+
+        @Test
+        void testIfContentIsEMPTYAfterClear() {
+            Seed newContent = Seed.CROSS;
+            cell.setContent(newContent);
+            cell.clear();
             assertEquals(Seed.EMPTY, cell.getContent());
         }
     }
