@@ -39,6 +39,9 @@ public class BoardTest {
 
     @Nested
     class MethodsTests {
+        Seed cross = Seed.CROSS;
+        Seed nought = Seed.NOUGHT;
+
         @BeforeEach
         void setUp() {
             board.init();
@@ -46,8 +49,6 @@ public class BoardTest {
 
         @Test
         void testIfIsDrawReturnsTrueWhenNoValidMoveLeft() throws CellNotEmptyException {
-
-            Seed cross = Seed.CROSS;
             for (Map.Entry<String, Cell> pair : board.getCells().entrySet()) {
                 pair.getValue().setContent(cross);
             }
@@ -56,8 +57,6 @@ public class BoardTest {
 
         @Test
         void testIfFillCellThrowsExceptionWhenCellNotEmpty() throws CellNotEmptyException {
-            Seed cross = Seed.CROSS;
-            Seed nought = Seed.NOUGHT;
             String coordinates = "2 1";
             board.fillCell(cross, coordinates);
             assertThrows(CellNotEmptyException.class, () -> board.fillCell(nought, coordinates));
@@ -65,14 +64,12 @@ public class BoardTest {
 
         @Test
         void testIfFillCellThrowsExceptionWhenIndexOutOfBounds() {
-            Seed cross = Seed.CROSS;
             String coordinates = "4 1";
             assertThrows(IndexOutOfBoundsException.class, () -> board.fillCell(cross, coordinates));
         }
 
         @Test
         void testIfFillCellChangeCellSeed() throws CellNotEmptyException {
-            Seed nought = Seed.NOUGHT;
             String coordinates = "2 1";
             board.getCells().get(coordinates).setContent(nought);
             assertEquals(nought, board.getCells().get(coordinates).getContent());
