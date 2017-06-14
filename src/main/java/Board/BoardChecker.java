@@ -51,39 +51,26 @@ class BoardChecker {
     }
 
     private Boolean checkLeftDiagonal(Board board, Map<String, Cell> cells) {
-        for (Integer index = 1; index <= board.getMAX_ROW_INDEX(); index++) {
-            Integer counter = 1;
-            Cell currentCell = cells.get(index + " " + index);
-
-                if (currentCell.getContent() != cells.get((index + 1) + " " + (index + 1)).getContent() ||
-                        currentCell.getContent() == Seed.EMPTY) {
-                    break;
-                }
-                else {
-                    if (counter == board.getMAX_ROW_INDEX()) {
-                        return true;
-                    }
-                    counter++;
-                }
-            }
+        Cell cellLeftTop = cells.get("1 1");
+        Cell cellCenter = cells.get("2 2");
+        Cell cellRightBottom = cells.get("3 3");
+        if (cellLeftTop.getContent() == cellCenter.getContent() &&
+                cellCenter.getContent() == cellRightBottom.getContent() &&
+                cellCenter.getContent() != Seed.EMPTY) {
+            return true;
+        }
         return false;
     }
 
     private Boolean checkRightDiagonal(Board board, Map<String, Cell> cells) {
-        for (Integer col = board.getMAX_ROW_INDEX(); col >= 1; col--) {
-            Integer counter = 1;
-            Cell currentCell = cells.get(1 + " " + col);
-            for (Integer row = 2; row <= board.getMAX_ROW_INDEX(); row++) {
-                if (currentCell.getContent() != cells.get(row + " " + (col-1)).getContent() ||
-                        currentCell.getContent() == Seed.EMPTY) {
-                    break;
-                } else {
-                    counter++;
-                }
-            }
-            if (counter == board.getMAX_ROW_INDEX()) {
-                return true;
-            }
+        Cell cellRightTop = cells.get("1 3");
+        Cell cellCenter = cells.get("2 2");
+        Cell cellLeftBottom = cells.get("3 1");
+        if (cellLeftBottom.getContent() == cellCenter.getContent() &&
+                cellCenter.getContent() == cellRightTop.getContent() &&
+                cellCenter.getContent() != Seed.EMPTY) {
+            return true;
         }
         return false;
+    }
 }
