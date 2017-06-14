@@ -55,7 +55,7 @@ public class BoardTest {
         }
 
         @Test
-        void testIfFillCellThrowsExceptionWhenCellNotEmpty() {
+        void testIfFillCellThrowsExceptionWhenCellNotEmpty() throws CellNotEmptyException {
             Seed cross = Seed.CROSS;
             Seed nought = Seed.NOUGHT;
             String coordinates = "2 1";

@@ -2,6 +2,7 @@ package Board;
 
 import Cell.Cell;
 import enums.Seed;
+import exceptions.CellNotEmptyException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +23,10 @@ public class Board {
                 cells.put(row + " " + col, cell);
             }
         }
+    }
+
+    public void fillCell(Seed seed, String inputCoordinates) throws CellNotEmptyException {
+        cells.get(inputCoordinates).setContent(seed);
     }
 
     public Boolean isDraw() {
