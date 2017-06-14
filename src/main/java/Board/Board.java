@@ -18,6 +18,14 @@ public class Board {
         return cells;
     }
 
+    public Integer getMAX_ROW_INDEX() {
+        return MAX_ROW_INDEX;
+    }
+
+    public Integer getMAX_COL_INDEX() {
+        return MAX_COL_INDEX;
+    }
+
     public void init() {
         for (Integer row = 1; row <= MAX_ROW_INDEX; row++) {
             for (Integer col = 1; col <= MAX_COL_INDEX; col++) {
@@ -36,7 +44,7 @@ public class Board {
     }
 
     public Boolean hasWon() {
-        return boardChecker.hasWon(cells);
+        return boardChecker.hasWon(this, cells);
     }
 
     public Boolean isDraw() {
