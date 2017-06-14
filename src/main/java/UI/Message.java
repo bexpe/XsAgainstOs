@@ -2,7 +2,7 @@ package UI;
 
 import Game.Game;
 
-public class Messages {
+public class Message {
     public void turnMessage(Game game) {
         System.out.println("Current player is: " + game.getCurrentPlayer());
     }
@@ -25,5 +25,9 @@ public class Messages {
 
     public void playAgainMessage() {
         System.out.println("Do you want to play again [Y/N]");
+    }
+
+    public void wrongInputMessage() {
+        System.out.println("Wrong input! Try again!");
     }
 }
