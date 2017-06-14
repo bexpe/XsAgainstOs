@@ -62,5 +62,12 @@ public class BoardTest {
             board.fillCell(cross, coordinates);
             assertThrows(CellNotEmptyException.class, () -> board.fillCell(nought, coordinates));
         }
+
+        @Test
+        void testIfFillCellThrowsExceptionWhenIndexOutOfBounds() {
+            Seed cross = Seed.CROSS;
+            String coordinates = "4 1";
+            assertThrows(IndexOutOfBoundsException.class, () -> board.fillCell(cross, coordinates));
+        }
     }
 }
