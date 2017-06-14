@@ -56,6 +56,11 @@ public class BoardTest {
         }
 
         @Test
+        void testIfIsDrawReturnsFalseWhenValidMoveLeft() throws CellNotEmptyException {
+            assertEquals(false, board.isDraw());
+        }
+
+        @Test
         void testIfFillCellThrowsExceptionWhenCellNotEmpty() throws CellNotEmptyException {
             String coordinates = "2 1";
             board.fillCell(cross, coordinates);
