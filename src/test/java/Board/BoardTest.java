@@ -92,6 +92,39 @@ public class BoardTest {
         @Test
         void testWinningScenarioHorizontal1() throws CellNotEmptyException {
             String coordinatesLeftTop = "1 1";
+            String coordinatesCenterTop = "1 2";
+            String coordinatesRightTop = "1 3";
+            board.getCells().get(coordinatesLeftTop).setContent(cross);
+            board.getCells().get(coordinatesCenterTop).setContent(cross);
+            board.getCells().get(coordinatesRightTop).setContent(cross);
+            assertEquals(true, board.hasWon());
+        }
+
+        @Test
+        void testWinningScenarioHorizontal2() throws CellNotEmptyException {
+            String coordinatesCenterLeft = "2 1";
+            String coordinatesCenter = "2 2";
+            String coordinatesCenterRight = "2 2";
+            board.getCells().get(coordinatesCenterLeft).setContent(cross);
+            board.getCells().get(coordinatesCenter).setContent(cross);
+            board.getCells().get(coordinatesCenterRight).setContent(cross);
+            assertEquals(true, board.hasWon());
+        }
+
+        @Test
+        void testWinningScenarioHorizontal3() throws CellNotEmptyException {
+            String coordinatesRightBottom = "3 1";
+            String coordinatesCenterBottom = "3 2";
+            String coordinatesLeftBottom = "3 3";
+            board.getCells().get(coordinatesRightBottom).setContent(cross);
+            board.getCells().get(coordinatesCenterBottom).setContent(cross);
+            board.getCells().get(coordinatesLeftBottom).setContent(cross);
+            assertEquals(true, board.hasWon());
+        }
+
+        @Test
+        void testWinningScenarioVertical1() throws CellNotEmptyException {
+            String coordinatesLeftTop = "1 1";
             String coordinatesLeft = "2 1";
             String coordinatesLeftBottom = "3 1";
             board.getCells().get(coordinatesLeftTop).setContent(cross);
@@ -101,7 +134,7 @@ public class BoardTest {
         }
 
         @Test
-        void testWinningScenarioHorizontal2() throws CellNotEmptyException {
+        void testWinningScenarioVertical2() throws CellNotEmptyException {
             String coordinatesCenterTop = "1 2";
             String coordinatesCenter = "2 2";
             String coordinatesCenterBottom = "3 2";
@@ -112,7 +145,7 @@ public class BoardTest {
         }
 
         @Test
-        void testWinningScenarioHorizontal3() throws CellNotEmptyException {
+        void testWinningScenarioVertical3() throws CellNotEmptyException {
             String coordinatesRightTop = "1 3";
             String coordinatesRight = "2 3";
             String coordinatesRightBottom = "3 3";
