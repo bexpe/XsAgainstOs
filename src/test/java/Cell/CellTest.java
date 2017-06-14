@@ -58,5 +58,4 @@ class CellTest {
             assertThrows(CellNotEmptyException.class, () -> cell.setContent(contentNought));
         }
     }
-
 }
