@@ -10,6 +10,7 @@ import Cell.Cell;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class BoardTest {
     private Board board;
@@ -51,6 +52,15 @@ public class BoardTest {
                 pair.getValue().setContent(cross);
             }
             assertEquals(true, board.isDraw());
+        }
+
+        @Test
+        void testIfFillCellThrowsExceptionWhenCellNotEmpty() {
+            Seed cross = Seed.CROSS;
+            Seed nought = Seed.NOUGHT;
+            String coordinates = "2 1";
+            board.fillCell(cross, coordinates);
+            assertThrows(CellNotEmptyException.class, () -> board.fillCell(nought, coordinates));
         }
     }
 }
