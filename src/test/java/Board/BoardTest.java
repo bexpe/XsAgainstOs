@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import Cell.Cell;
 
-import java.util.ArrayList;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -43,10 +43,12 @@ public class BoardTest {
             board.init();
         }
 
+        @Test
         void testIfIsDrawReturnsTrueWhenNoValidMoveLeft() throws CellNotEmptyException {
+
             Seed cross = Seed.CROSS;
-            for (Cell cell: board.getCells()) {
-                cell.setContent(cross);
+            for (Map.Entry<String, Cell> pair : board.getCells().entrySet()) {
+                pair.getValue().setContent(cross);
             }
             assertEquals(true, board.isDraw());
         }
