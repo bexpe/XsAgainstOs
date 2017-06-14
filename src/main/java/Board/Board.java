@@ -9,16 +9,16 @@ import java.util.Map;
 
 public class Board {
     private Map<String, Cell> cells = new HashMap<>();
-    private final Integer MAX_ROW_INDEX = 2;
-    private final Integer MAX_COL_INDEX = 2;
+    private final Integer MAX_ROW_INDEX = 3;
+    private final Integer MAX_COL_INDEX = 3;
 
     public Map<String, Cell> getCells() {
         return cells;
     }
 
     public void init() {
-        for (Integer row = 0; row <= MAX_ROW_INDEX; row++) {
-            for (Integer col = 0; col <= MAX_COL_INDEX; col++) {
+        for (Integer row = 1; row <= MAX_ROW_INDEX; row++) {
+            for (Integer col = 1; col <= MAX_COL_INDEX; col++) {
                 Cell cell = new Cell(row, col);
                 cells.put(row + " " + col, cell);
             }
