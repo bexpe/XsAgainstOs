@@ -26,6 +26,10 @@ public class Board {
     }
 
     public void fillCell(Seed seed, String inputCoordinates) throws CellNotEmptyException {
+        String[] splited = inputCoordinates.split("\\s+");
+        if (Integer.parseInt(splited[0]) > MAX_ROW_INDEX || Integer.parseInt(splited[1]) > MAX_COL_INDEX) {
+            throw new IndexOutOfBoundsException("Board size is 3 x 3");
+        }
         cells.get(inputCoordinates).setContent(seed);
     }
 
