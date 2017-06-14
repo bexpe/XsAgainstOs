@@ -101,7 +101,7 @@ public class BoardTest {
         void testWinningScenarioHorizontal2() throws CellNotEmptyException {
             String coordinatesCenterLeft = "2 1";
             String coordinatesCenter = "2 2";
-            String coordinatesCenterRight = "2 2";
+            String coordinatesCenterRight = "2 3";
             board.getCells().get(coordinatesCenterLeft).setContent(cross);
             board.getCells().get(coordinatesCenter).setContent(cross);
             board.getCells().get(coordinatesCenterRight).setContent(cross);
