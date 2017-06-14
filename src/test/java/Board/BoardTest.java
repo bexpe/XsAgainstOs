@@ -69,5 +69,13 @@ public class BoardTest {
             String coordinates = "4 1";
             assertThrows(IndexOutOfBoundsException.class, () -> board.fillCell(cross, coordinates));
         }
+
+        @Test
+        void testIfFillCellChangeCellSeed() throws CellNotEmptyException {
+            Seed nought = Seed.NOUGHT;
+            String coordinates = "2 1";
+            board.getCells().get(coordinates).setContent(nought);
+            assertEquals(nought, board.getCells().get(coordinates).getContent());
+        }
     }
 }
