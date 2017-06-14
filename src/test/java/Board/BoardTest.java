@@ -4,10 +4,11 @@ import enums.Seed;
 import exceptions.CellNotEmptyException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 import Cell.Cell;
 
-import java.util.Map;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -76,6 +77,49 @@ public class BoardTest {
             String coordinates = "2 1";
             board.getCells().get(coordinates).setContent(nought);
             assertEquals(nought, board.getCells().get(coordinates).getContent());
+        }
+
+    }
+    @Nested
+    class ScenarioTest {
+        Seed cross = Seed.CROSS;
+
+        @BeforeEach
+        void setUp() {
+            board.init();
+        }
+
+        @Test
+        void testWinningScenarioHorizontal1() throws CellNotEmptyException {
+            String coordinatesLeftTop = "1 1";
+            String coordinatesLeft = "2 1";
+            String coordinatesLeftBottom = "3 1";
+            board.getCells().get(coordinatesLeftTop).setContent(cross);
+            board.getCells().get(coordinatesLeft).setContent(cross);
+            board.getCells().get(coordinatesLeftBottom).setContent(cross);
+            assertEquals(true, board.hasWon());
+        }
+
+        @Test
+        void testWinningScenarioHorizontal2() throws CellNotEmptyException {
+            String coordinatesCenterTop = "1 2";
+            String coordinatesCenter = "2 2";
+            String coordinatesCenterBottom = "3 2";
+            board.getCells().get(coordinatesCenterTop).setContent(cross);
+            board.getCells().get(coordinatesCenter).setContent(cross);
+            board.getCells().get(coordinatesCenterBottom).setContent(cross);
+            assertEquals(true, board.hasWon());
+        }
+
+        @Test
+        void testWinningScenarioHorizontal3() throws CellNotEmptyException {
+            String coordinatesRightTop = "1 3";
+            String coordinatesRight = "2 3";
+            String coordinatesRightBottom = "3 3";
+            board.getCells().get(coordinatesRightTop).setContent(cross);
+            board.getCells().get(coordinatesRight).setContent(cross);
+            board.getCells().get(coordinatesRightBottom).setContent(cross);
+            assertEquals(true, board.hasWon());
         }
     }
 }
