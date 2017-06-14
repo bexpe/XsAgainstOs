@@ -17,7 +17,7 @@ public class Board {
 
     public void init() {
         for (Integer row = 0; row <= MAX_ROW_INDEX; row++) {
-            for (Integer col = 0; col <= MAX_ROW_INDEX; col++) {
+            for (Integer col = 0; col <= MAX_COL_INDEX; col++) {
                 Cell cell = new Cell(row, col);
                 cells.add(cell);
             }
