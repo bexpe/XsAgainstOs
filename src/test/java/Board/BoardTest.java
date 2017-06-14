@@ -154,5 +154,27 @@ public class BoardTest {
             board.getCells().get(coordinatesRightBottom).setContent(cross);
             assertEquals(true, board.hasWon());
         }
+
+        @Test
+        void testWinningScenarioDiagonal1() throws CellNotEmptyException {
+            String coordinatesLeftTop = "1 1";
+            String coordinatesCenter = "2 2";
+            String coordinatesRightBottom = "3 3";
+            board.getCells().get(coordinatesLeftTop).setContent(cross);
+            board.getCells().get(coordinatesCenter).setContent(cross);
+            board.getCells().get(coordinatesRightBottom).setContent(cross);
+            assertEquals(true, board.hasWon());
+        }
+
+        @Test
+        void testWinningScenarioDiagonal2() throws CellNotEmptyException {
+            String coordinatesRightTop = "1 3";
+            String coordinatesCenter = "2 2";
+            String coordinatesLeftBottom = "3 1";
+            board.getCells().get(coordinatesRightTop).setContent(cross);
+            board.getCells().get(coordinatesCenter).setContent(cross);
+            board.getCells().get(coordinatesLeftBottom).setContent(cross);
+            assertEquals(true, board.hasWon());
+        }
     }
 }
