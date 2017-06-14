@@ -11,6 +11,8 @@ public class Board {
     private Map<String, Cell> cells = new HashMap<>();
     private final Integer MAX_ROW_INDEX = 3;
     private final Integer MAX_COL_INDEX = 3;
+    private BoardChecker boardChecker = new BoardChecker();
+
 
     public Map<String, Cell> getCells() {
         return cells;
@@ -31,6 +33,10 @@ public class Board {
             throw new IndexOutOfBoundsException("Board size is 3 x 3");
         }
         cells.get(inputCoordinates).setContent(seed);
+    }
+
+    public Boolean hasWon() {
+        return boardChecker.hasWon(cells);
     }
 
     public Boolean isDraw() {
