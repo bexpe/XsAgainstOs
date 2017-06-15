@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
+import static java.util.concurrent.CompletableFuture.anyOf;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -49,6 +50,12 @@ public class GameTest {
             List<String> expectedTitlesList = Arrays.asList(expectedTitles);
             assertTrue(expectedTitlesList.contains((game.getCurrentPlayer()).toString()));
         }
+    }
+
+    @Test
+    void testGetCurrentPlayer() {
+        Seed currentPlayer = game.getCurrentPlayer();
+        assertEquals(currentPlayer, game.getCurrentPlayer());
     }
 
     @RepeatedTest(100)
