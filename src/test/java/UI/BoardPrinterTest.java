@@ -3,7 +3,6 @@ package UI;
 import Cell.CellNotEmptyException;
 import Cell.Seed;
 import Game.Game;
-import UI.BoardPrinter;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,12 +10,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-
-public class BoardPrinterTest {
+class BoardPrinterTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     private Game game;
@@ -48,12 +43,12 @@ public class BoardPrinterTest {
         game.getBoard().fillCell(nought, topRightCoordinate);
         boardPrinter.printBoard(game.getBoard().getCellsContentAsString());
         Assertions.assertEquals(
-                "+---+---+---+---+\n" +
-                "| X  |  X  |  O |\n" +
-                "-----------------\n" +
-                "|    |     |    |\n" +
-                "-----------------\n" +
-                "|    |     |    |\n" +
-                "+---+---+---+---+\n", outContent.toString());
+                    "+---+---+---+---+\n" +
+                    "| X  |  X  |  O |\n" +
+                    "-----------------\n" +
+                    "|    |     |    |\n" +
+                    "-----------------\n" +
+                    "|    |     |    |\n" +
+                    "+---+---+---+---+\n", outContent.toString());
     }
 }

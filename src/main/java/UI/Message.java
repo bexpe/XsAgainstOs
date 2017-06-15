@@ -6,8 +6,8 @@ public class Message {
     public void menuMessage() {
         System.out.println(
                 "1. Play the game\n" +
-                "2. Exit\n" +
-                "Choose option: ");
+                        "2. Exit\n" +
+                        "Choose option: ");
     }
 
     public void turnMessage(Game game) {
@@ -30,7 +30,7 @@ public class Message {
         System.out.println("It's a draw!");
     }
 
-    public void wrongInputMessage() {
+    void wrongInputMessage() {
         System.out.println("Wrong input! Try again!");
     }
 

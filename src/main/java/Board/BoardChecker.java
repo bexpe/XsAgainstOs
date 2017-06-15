@@ -1,12 +1,10 @@
 package Board;
 
-import Cell.Cell;
 import Cell.Seed;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 
 class BoardChecker {
 
@@ -27,7 +25,10 @@ class BoardChecker {
     private Boolean checkHorizontal(Board board) {
         List<Seed> cellsContent = board.getCellsContentAsSeed();
 
-        for (Integer index = 0; index < cellsContent.size(); index += board.getMAX_COL_INDEX()) {
+        for (Integer index = 0;
+             index < cellsContent.size();
+             index += board.getMAX_COL_INDEX()
+                ) {
             if (new HashSet<>(cellsContent.subList(index, index + board.getMAX_COL_INDEX())).size() == 1 &&
                     cellsContent.get(index) != Seed.EMPTY) {
                 return true;
@@ -41,7 +42,10 @@ class BoardChecker {
 
         for (Integer colIndex = 0; colIndex < board.getMAX_COL_INDEX(); colIndex++) {
             List<Seed> colList = new ArrayList<>();
-            for (Integer rowIndex = colIndex; rowIndex < cellsContent.size(); rowIndex += board.getMAX_COL_INDEX()) {
+            for (Integer rowIndex = colIndex;
+                 rowIndex < cellsContent.size();
+                 rowIndex += board.getMAX_COL_INDEX()
+                    ) {
                 colList.add(cellsContent.get(rowIndex));
             }
             if (new HashSet<>(colList).size() == 1 &&
@@ -56,7 +60,10 @@ class BoardChecker {
         List<Seed> cellsContent = board.getCellsContentAsSeed();
         List<Seed> diagonalList = new ArrayList<>();
 
-        for (Integer index = 0; index < cellsContent.size(); index += board.getMAX_COL_INDEX() + 1) {
+        for (Integer index = 0;
+             index < cellsContent.size();
+             index += board.getMAX_COL_INDEX() + 1
+                ) {
             diagonalList.add(cellsContent.get(index));
         }
         return new HashSet<>(diagonalList).size() == 1 &&
@@ -67,7 +74,10 @@ class BoardChecker {
         List<Seed> cellsContent = board.getCellsContentAsSeed();
         List<Seed> diagonalList = new ArrayList<>();
 
-        for (Integer index = board.getMAX_COL_INDEX() - 1; index < cellsContent.size() - 1; index += (board.getMAX_COL_INDEX() - 1)) {
+        for (Integer index = board.getMAX_COL_INDEX() - 1;
+             index < cellsContent.size() - 1;
+             index += (board.getMAX_COL_INDEX() - 1)
+                ) {
             diagonalList.add(cellsContent.get(index));
         }
         return new HashSet<>(diagonalList).size() == 1 &&

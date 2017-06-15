@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MessageTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -36,8 +36,8 @@ class MessageTest {
         message.menuMessage();
         assertEquals(
                 "1. Play the game\n" +
-                "2. Exit\n" +
-                "Choose option: \n", outContent.toString());
+                        "2. Exit\n" +
+                        "Choose option: \n", outContent.toString());
     }
 
     @Test

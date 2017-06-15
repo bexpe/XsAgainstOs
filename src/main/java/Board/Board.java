@@ -20,7 +20,7 @@ public class Board {
         return cells;
     }
 
-    public Integer getMAX_COL_INDEX() {
+    Integer getMAX_COL_INDEX() {
         return MAX_COL_INDEX;
     }
 
@@ -73,12 +73,12 @@ public class Board {
         return cellsContent;
     }
 
-    public List<Seed> getCellsContentAsSeed() {
+    List<Seed> getCellsContentAsSeed() {
         List<Seed> cellsContent = new ArrayList<>();
         for (Map.Entry<String, Cell> entry : cells.entrySet()) {
             Cell cell = entry.getValue();
             cellsContent.add(cell.getContent());
-            }
+        }
         return cellsContent;
     }
 }
