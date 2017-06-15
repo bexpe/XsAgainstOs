@@ -1,16 +1,20 @@
 package Game;
 
+import Board.Board;
 import Cell.CellNotEmptyException;
 import Cell.Seed;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GameTest {
@@ -21,6 +25,7 @@ public class GameTest {
     @BeforeEach
     void setUp() {
         this.game = new Game();
+
         game.initGame();
     }
 
@@ -46,8 +51,8 @@ public class GameTest {
         }
     }
 
-    @Test
-    void testUpdateGameStateWhenSeedCross() throws CellNotEmptyException {
+    @RepeatedTest(100)
+    void testUpdateGameStateWhenWon() throws CellNotEmptyException {
         String coordinatesCenterTop = "1 2";
         String coordinatesCenter = "2 2";
         String coordinatesCenterBottom = "3 2";
@@ -55,19 +60,8 @@ public class GameTest {
         game.getBoard().getCells().get(coordinatesCenter).setContent(cross);
         game.getBoard().getCells().get(coordinatesCenterBottom).setContent(cross);
         game.updateGameState();
-        assertEquals("CROSS_WON", game.getGameState().toString());
-    }
-
-    @Test
-    void testUpdateGameStateWhenSeedNought () throws CellNotEmptyException {
-        String coordinatesCenterTop = "1 2";
-        String coordinatesCenter = "2 2";
-        String coordinatesCenterBottom = "3 2";
-        game.getBoard().getCells().get(coordinatesCenterTop).setContent(nought);
-        game.getBoard().getCells().get(coordinatesCenter).setContent(nought);
-        game.getBoard().getCells().get(coordinatesCenterBottom).setContent(nought);
-        game.updateGameState();
-        assertEquals("NOUGHT_WON", game.getGameState().toString());
+        String player = game.getCurrentPlayer().toString();
+        assertEquals(player+"_WON", game.getGameState().toString());
     }
 
     @Test
@@ -92,5 +86,13 @@ public class GameTest {
         game.getBoard().getCells().get(coordinatesRightBottom).setContent(nought);
         game.updateGameState();
         assertEquals("DRAW", game.getGameState().toString());
+    }
+
+    @RepeatedTest(100)
+    void testChangePlayer() {
+        String playerBeforeChange = game.getCurrentPlayer().toString();
+        game.changePlayer();
+        String playerAfterChange = game.getCurrentPlayer().toString();
+        assertNotEquals(playerAfterChange, playerBeforeChange);
     }
 }
