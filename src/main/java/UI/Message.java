@@ -14,7 +14,7 @@ public class Message {
     }
 
     public void playerInputMessage(Game game) {
-        System.out.println("Player " + game.getCurrentPlayer() + ", enter your move (row[1-3], column[1-3])");
+        System.out.println("Player " + game.getCurrentPlayer() + ", enter your move (row[1-3] column[1-3])");
     }
 
     public void moveNotValidMessage() {
