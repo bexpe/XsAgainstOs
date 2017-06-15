@@ -57,8 +57,7 @@ public class Game {
                     setGameState(GameState.CROSS_WON);
                     break;
             }
-        }
-        if (board.isDraw()) {
+        } else if (board.isDraw()) {
             setGameState(GameState.DRAW);
         }
     }
