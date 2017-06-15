@@ -1,5 +1,7 @@
 package Game;
 
+import Cell.CellNotEmptyException;
+import Cell.Seed;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -13,6 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GameTest {
     Game game;
+    Seed cross = Seed.CROSS;
 
     @BeforeEach
     void setUp() {
@@ -43,7 +46,14 @@ public class GameTest {
     }
 
     @Test
-    void testGetBoard() {
-
+    void testUpdateGameState() throws CellNotEmptyException {
+        String coordinatesCenterTop = "1 2";
+        String coordinatesCenter = "2 2";
+        String coordinatesCenterBottom = "3 2";
+        game.getBoard().getCells().get(coordinatesCenterTop).setContent(cross);
+        game.getBoard().getCells().get(coordinatesCenter).setContent(cross);
+        game.getBoard().getCells().get(coordinatesCenterBottom).setContent(cross);
+        game.updateGameState();
+        assertEquals("CROSS_WON", game.getGameState().toString());
     }
 }
