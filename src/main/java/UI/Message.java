@@ -3,12 +3,18 @@ package UI;
 import Game.Game;
 
 public class Message {
+    public void menuMessage() {
+        System.out.println("1. Play the game");
+        System.out.println("2. Exit");
+        System.out.println("Choose option: ");
+    }
+
     public void turnMessage(Game game) {
         System.out.println("Current player is: " + game.getCurrentPlayer());
     }
 
     public void playerInputMessage(Game game) {
-        System.out.println("Player "+ game.getCurrentPlayer() +", enter your move (row[1-3], column[1-3])");
+        System.out.println("Player " + game.getCurrentPlayer() + ", enter your move (row[1-3], column[1-3])");
     }
 
     public void moveNotValidMessage() {
@@ -16,7 +22,7 @@ public class Message {
     }
 
     public void wonMessage(Game game) {
-        System.out.println(game.getCurrentPlayer() + " has won!");
+        System.out.println(game.getGameState());
     }
 
     public void drawMessage() {
@@ -29,5 +35,9 @@ public class Message {
 
     public void wrongInputMessage() {
         System.out.println("Wrong input! Try again!");
+    }
+
+    public void exitMessage() {
+        System.out.println("Thanks for playing!");
     }
 }

@@ -1,14 +1,14 @@
 package Board;
 
 import Cell.Cell;
-import enums.Seed;
-import exceptions.CellNotEmptyException;
+import Cell.CellNotEmptyException;
+import Cell.Seed;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Board {
-    private Map<String, Cell> cells = new HashMap<>();
+    private Map<String, Cell> cells = new LinkedHashMap<>();
     private final Integer MAX_ROW_INDEX = 3;
     private final Integer MAX_COL_INDEX = 3;
     private BoardChecker boardChecker = new BoardChecker();
@@ -38,7 +38,7 @@ public class Board {
     public void fillCell(Seed seed, String inputCoordinates) throws CellNotEmptyException {
         String[] splitedCoordinates = inputCoordinates.split("\\s+");
         if (Integer.parseInt(splitedCoordinates[0]) > MAX_ROW_INDEX || Integer.parseInt(splitedCoordinates[1]) > MAX_COL_INDEX) {
-            throw new IndexOutOfBoundsException("Board size is 3 x 3");
+            throw new IndexOutOfBoundsException("BoardPrinter size is 3 x 3");
         }
         cells.get(inputCoordinates).setContent(seed);
     }

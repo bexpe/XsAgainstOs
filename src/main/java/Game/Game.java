@@ -1,9 +1,8 @@
 package Game;
 
 import Board.Board;
-import enums.GameState;
-import enums.Seed;
-import exceptions.CellNotEmptyException;
+import Cell.CellNotEmptyException;
+import Cell.Seed;
 
 import java.util.Arrays;
 import java.util.List;
@@ -20,6 +19,7 @@ public class Game {
 
     public void initGame() {
         this.board = new Board();
+        this.board.init();
         this.gameState = GameState.PLAYING;
         this.currentPlayer = chooseRandomPlayer();
     }
@@ -32,7 +32,7 @@ public class Game {
         return gameState;
     }
 
-    public void setGameState(GameState gameState) {
+    private void setGameState(GameState gameState) {
         this.gameState = gameState;
     }
 
@@ -40,20 +40,42 @@ public class Game {
         return currentPlayer;
     }
 
+    private void setCurrentPlayer(Seed player) {
+        this.currentPlayer = player;
+    }
+
     private Seed chooseRandomPlayer() {
         return PLAYERS.get(RANDOM.nextInt(SIZE));
     }
 
-    public void updateGameState(Seed player, String coordinates) {
+    public void fillCell(Seed player, String coordinates) throws CellNotEmptyException {
+        board.fillCell(player, coordinates);
+    }
+
+    public void updateGameState() {
         if (board.hasWon()) {
-            if (currentPlayer == Seed.CROSS) {
-                setGameState(GameState.CROSS_WON);
+            switch (getCurrentPlayer()) {
+                case NOUGHT:
+                    setGameState(GameState.NOUGHT_WON);
+                    break;
+                case CROSS:
+                    setGameState(GameState.CROSS_WON);
+                    break;
             }
-            setGameState(GameState.NOUGHT_WON);
         }
         if (board.isDraw()) {
             setGameState(GameState.DRAW);
         }
+    }
 
+    public void changePlayer() {
+        switch (currentPlayer) {
+            case CROSS:
+                setCurrentPlayer(Seed.NOUGHT);
+                break;
+            case NOUGHT:
+                setCurrentPlayer(Seed.CROSS);
+                break;
+        }
     }
 }

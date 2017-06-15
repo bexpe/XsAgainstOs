@@ -1,7 +1,7 @@
-package exceptions;
+package Cell;
 
 public class CellNotEmptyException extends Exception {
-    public CellNotEmptyException(String message) {
+    CellNotEmptyException(String message) {
         super(message);
     }
 }

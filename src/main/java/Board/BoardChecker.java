@@ -1,7 +1,7 @@
 package Board;
 
 import Cell.Cell;
-import enums.Seed;
+import Cell.Seed;
 
 import java.util.Map;
 

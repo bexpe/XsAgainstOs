@@ -1,18 +1,18 @@
 package Board;
 
-import enums.Seed;
-import exceptions.CellNotEmptyException;
+import Cell.Cell;
+import Cell.CellNotEmptyException;
+import Cell.Seed;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import Cell.Cell;
 
-import java.util.*;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class BoardTest {
+public class BoardPrinterTest {
     private Board board;
 
     @BeforeEach
@@ -81,6 +81,7 @@ public class BoardTest {
         }
 
     }
+
     @Nested
     class ScenarioTest {
         Seed cross = Seed.CROSS;

@@ -1,8 +1,5 @@
 package Cell;
 
-import enums.Seed;
-import exceptions.CellNotEmptyException;
-
 public class Cell {
     private Seed content = Seed.EMPTY;
     private Integer row;

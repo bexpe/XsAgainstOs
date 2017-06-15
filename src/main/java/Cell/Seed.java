@@ -1,4 +1,4 @@
-package enums;
+package Cell;
 
 public enum Seed {
     EMPTY,

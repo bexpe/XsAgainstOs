@@ -1,16 +1,55 @@
+import Cell.CellNotEmptyException;
 import Game.Game;
+import Game.GameState;
+import UI.BoardPrinter;
+import UI.Input;
+import UI.Message;
 
-public class App {
-    Game game;
+class App {
+    private Game game;
+    private Message message = new Message();
+    private Input input = new Input();
+    private BoardPrinter boardPrinter = new BoardPrinter();
 
-    public void startGame() {
-        game = new Game();
-        game.initGame();
+    void run() {
+        Boolean isRunning = true;
+        while (isRunning) {
+            game = new Game();
+            game.initGame();
+            message.menuMessage();
+            String option = input.menuInput();
+            switch (option) {
+                case "1":
+                    game();
+                    break;
+                case "2":
+                    isRunning = false;
+            }
+        }
+    }
 
-        Boolean isPlaying = true;
-        while (isPlaying) {
-            System.out.println("Current player is: " + game.getCurrentPlayer());
-
+    private void game() {
+        while (game.getGameState() == GameState.PLAYING) {
+            boardPrinter.printBoard(game.getBoard());
+            message.turnMessage(game);
+            message.playerInputMessage(game);
+            String coordinates = input.turnInput();
+            try {
+                game.fillCell(game.getCurrentPlayer(), coordinates);
+                game.updateGameState();
+                game.changePlayer();
+            } catch (CellNotEmptyException e) {
+                message.wrongInputMessage();
+            }
+        }
+        switch (game.getGameState()) {
+            case CROSS_WON:
+            case NOUGHT_WON:
+                boardPrinter.printBoard(game.getBoard());
+                message.wonMessage(game);
+                break;
+            case DRAW:
+                message.drawMessage();
         }
     }
 }
