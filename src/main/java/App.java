@@ -31,7 +31,7 @@ class App {
 
     private void game() {
         while (game.getGameState() == GameState.PLAYING) {
-            boardPrinter.printBoard(game.getBoard());
+            boardPrinter.printBoard(game.getBoard().getCellsContentAsString());
             message.turnMessage(game);
             message.playerInputMessage(game);
             String coordinates = input.turnInput();
@@ -46,7 +46,7 @@ class App {
         switch (game.getGameState()) {
             case CROSS_WON:
             case NOUGHT_WON:
-                boardPrinter.printBoard(game.getBoard());
+                boardPrinter.printBoard(game.getBoard().getCellsContentAsString());
                 message.wonMessage(game);
                 break;
             case DRAW:

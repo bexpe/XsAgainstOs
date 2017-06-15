@@ -1,31 +1,10 @@
 package UI;
 
-import Board.Board;
-import Cell.Cell;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class BoardPrinter {
 
-    public void printBoard(Board board) {
-        List<String> cellsContent = new ArrayList<>();
-        for (Map.Entry<String, Cell> entry : board.getCells().entrySet()) {
-            Cell cell = entry.getValue();
-            switch (cell.getContent()) {
-                case CROSS:
-                    cellsContent.add("X");
-                    break;
-                case NOUGHT:
-                    cellsContent.add("O");
-                    break;
-                case EMPTY:
-                    cellsContent.add(" ");
-                    break;
-            }
-        }
-        
+    public void printBoard(List<String> cellsContent) {
         System.out.println(String.format(
                     "+---+---+---+---+\n" +
                     "| %s  |  %s  |  %s |\n" +
