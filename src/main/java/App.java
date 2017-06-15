@@ -51,6 +51,7 @@ class App {
                 break;
             case DRAW:
                 message.drawMessage();
+                break;
         }
     }
 }
