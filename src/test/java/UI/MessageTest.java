@@ -14,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MessageTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 
     private Message message = new Message();
     private Game game;
@@ -22,7 +21,6 @@ class MessageTest {
     @BeforeEach
     void setUp() {
         System.setOut(new PrintStream(outContent));
-        System.setErr(new PrintStream(errContent));
         this.game = new Game();
         game.initGame();
     }

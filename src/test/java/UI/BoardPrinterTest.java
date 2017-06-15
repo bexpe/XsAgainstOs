@@ -18,7 +18,6 @@ import static org.junit.Assert.assertEquals;
 
 public class BoardPrinterTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 
     private Game game;
     private BoardPrinter boardPrinter;
@@ -26,7 +25,6 @@ public class BoardPrinterTest {
     @BeforeEach
     void setUp() {
         System.setOut(new PrintStream(outContent));
-        System.setErr(new PrintStream(errContent));
         this.boardPrinter = new BoardPrinter();
         this.game = new Game();
         game.initGame();
