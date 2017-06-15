@@ -8,7 +8,7 @@ import UI.Message;
 class App {
     private Game game;
     private Message message = new Message();
-    private Input input = new Input();
+    private Input input = new Input(System.in);
     private BoardPrinter boardPrinter = new BoardPrinter();
 
     void run() {

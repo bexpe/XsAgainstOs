@@ -59,7 +59,7 @@ public class GameTest {
         assertEquals(Seed.CROSS, game.getCurrentPlayer());
     }
 
-    @RepeatedTest(100)
+    @Test
     void testUpdateGameStateWhenWon() throws CellNotEmptyException {
         String coordinatesCenterTop = "1 2";
         String coordinatesCenter = "2 2";
