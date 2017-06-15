@@ -11,8 +11,17 @@ import java.util.Map;
 class BoardChecker {
 
 
-    Boolean hasWon(Board board, Map<String, Cell> cells) {
-        return checkVertical(board) || checkHorizontal(board) || checkLeftDiagonal(board, cells) || checkRightDiagonal(board, cells);
+    Boolean hasWon(Board board) {
+        if (checkHorizontal(board)) {
+            return true;
+        } else if (checkVertical(board)) {
+            return true;
+        } else if (checkRightDiagonal(board)) {
+            return true;
+        } else if (checkLeftDiagonal(board)) {
+            return true;
+        }
+        return false;
     }
 
     private Boolean checkHorizontal(Board board) {
@@ -32,8 +41,8 @@ class BoardChecker {
 
         for (Integer colIndex = 0; colIndex < board.getMAX_COL_INDEX(); colIndex++) {
             List<Seed> colList = new ArrayList<>();
-            for (Integer rowIndex = 0; rowIndex < cellsContent.size(); rowIndex += board.getMAX_COL_INDEX()) {
-                colList.add(cellsContent.get(rowIndex + colIndex));
+            for (Integer rowIndex = colIndex; rowIndex < cellsContent.size(); rowIndex += board.getMAX_COL_INDEX()) {
+                colList.add(cellsContent.get(rowIndex));
             }
             if (new HashSet<>(colList).size() == 1 &&
                     !colList.contains(Seed.EMPTY)) {
@@ -43,7 +52,7 @@ class BoardChecker {
         return false;
     }
 
-    private Boolean checkLeftDiagonal(Board board, Map<String, Cell> cells) {
+    private Boolean checkLeftDiagonal(Board board) {
         List<Seed> cellsContent = board.getCellsContentAsSeed();
         List<Seed> diagonalList = new ArrayList<>();
 
@@ -54,7 +63,7 @@ class BoardChecker {
                 !diagonalList.contains(Seed.EMPTY);
     }
 
-    private Boolean checkRightDiagonal(Board board, Map<String, Cell> cells) {
+    private Boolean checkRightDiagonal(Board board) {
         List<Seed> cellsContent = board.getCellsContentAsSeed();
         List<Seed> diagonalList = new ArrayList<>();
 

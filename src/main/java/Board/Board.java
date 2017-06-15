@@ -46,7 +46,7 @@ public class Board {
     }
 
     public Boolean hasWon() {
-        return boardChecker.hasWon(this, cells);
+        return boardChecker.hasWon(this);
     }
 
     public Boolean isDraw() {

@@ -77,8 +77,8 @@ public class GameTest {
         String coordinatesLeftTop = "1 1";
         String coordinatesRightTop = "1 3";
         String coordinatesCenter = "2 2";
-        String coordinatesRightCenter = "2 1";
-        String coordinatesLeftCenter = "2 3";
+        String coordinatesLeftCenter = "2 1";
+        String coordinatesRightCenter = "2 3";
         String coordinatesCenterBottom = "3 2";
         String coordinatesLeftBottom = "3 1";
         String coordinatesRightBottom = "3 3";
