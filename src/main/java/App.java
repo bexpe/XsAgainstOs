@@ -23,6 +23,7 @@ class App {
                     game();
                     break;
                 case "2":
+                    message.exitMessage();
                     isRunning = false;
             }
         }
@@ -39,7 +40,7 @@ class App {
                 game.updateGameState();
                 game.changePlayer();
             } catch (CellNotEmptyException e) {
-                message.wrongInputMessage();
+                message.moveNotValidMessage();
             }
         }
         switch (game.getGameState()) {

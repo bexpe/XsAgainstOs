@@ -29,10 +29,6 @@ public class Message {
         System.out.println("It's a draw!");
     }
 
-    public void playAgainMessage() {
-        System.out.println("Do you want to play again [Y/N]");
-    }
-
     public void wrongInputMessage() {
         System.out.println("Wrong input! Try again!");
     }
