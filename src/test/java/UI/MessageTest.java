@@ -17,12 +17,13 @@ class MessageTest {
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 
     private Message message = new Message();
-    private Game game = new Game();
+    private Game game;
 
     @BeforeEach
     void setUp() {
         System.setOut(new PrintStream(outContent));
         System.setErr(new PrintStream(errContent));
+        this.game = new Game();
         game.initGame();
     }
 
