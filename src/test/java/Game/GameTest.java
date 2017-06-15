@@ -54,8 +54,9 @@ public class GameTest {
 
     @Test
     void testGetCurrentPlayer() {
-        Seed currentPlayer = game.getCurrentPlayer();
-        assertEquals(currentPlayer, game.getCurrentPlayer());
+        Seed newPlayer = Seed.CROSS;
+        game.setCurrentPlayer(newPlayer);
+        assertEquals(Seed.CROSS, game.getCurrentPlayer());
     }
 
     @RepeatedTest(100)
