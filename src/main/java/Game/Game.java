@@ -1,7 +1,6 @@
 package Game;
 
 import Board.Board;
-import Cell.CellNotEmptyException;
 import Cell.Seed;
 
 import java.util.Arrays;
