@@ -20,10 +20,6 @@ public class Board {
         return cells;
     }
 
-    public Integer getMAX_ROW_INDEX() {
-        return MAX_ROW_INDEX;
-    }
-
     public Integer getMAX_COL_INDEX() {
         return MAX_COL_INDEX;
     }
