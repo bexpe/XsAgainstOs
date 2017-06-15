@@ -7,6 +7,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -80,6 +82,24 @@ public class BoardTest {
             assertEquals(nought, board.getCells().get(coordinates).getContent());
         }
 
+        @Test
+        void testIfGetCellsContentAsStringReturnsProperList() throws CellNotEmptyException {
+            String coordinates1 = "1 1";
+            String coordinates2 = "1 2";
+            board.getCells().get(coordinates1).setContent(nought);
+            board.getCells().get(coordinates2).setContent(cross);
+            List<String> expectedList = new ArrayList<>();
+            expectedList.add("O");
+            expectedList.add("X");
+            expectedList.add(" ");
+            expectedList.add(" ");
+            expectedList.add(" ");
+            expectedList.add(" ");
+            expectedList.add(" ");
+            expectedList.add(" ");
+            expectedList.add(" ");
+            assertEquals(expectedList, board.getCellsContentAsString());
+        }
     }
 
     @Nested
