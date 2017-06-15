@@ -39,7 +39,7 @@ public class Game {
         return currentPlayer;
     }
 
-    private void setCurrentPlayer(Seed player) {
+    public void setCurrentPlayer(Seed player) {
         this.currentPlayer = player;
     }
 

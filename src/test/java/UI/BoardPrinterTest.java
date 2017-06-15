@@ -1,4 +1,4 @@
-package UITest;
+package UI;
 
 import UI.BoardPrinter;
 import org.junit.jupiter.api.Test;

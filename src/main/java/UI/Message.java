@@ -4,9 +4,10 @@ import Game.Game;
 
 public class Message {
     public void menuMessage() {
-        System.out.println("1. Play the game");
-        System.out.println("2. Exit");
-        System.out.println("Choose option: ");
+        System.out.println(
+                "1. Play the game\n" +
+                "2. Exit\n" +
+                "Choose option: ");
     }
 
     public void turnMessage(Game game) {

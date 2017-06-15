@@ -23,6 +23,5 @@ public class BoardPrinter {
                 cellsContent.get(3), cellsContent.get(4), cellsContent.get(5),
                 cellsContent.get(6), cellsContent.get(7), cellsContent.get(8)));
         this.sb =sb;
-        System.out.println(sb);
     }
 }
