@@ -4,7 +4,9 @@ import Cell.Cell;
 import Cell.CellNotEmptyException;
 import Cell.Seed;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Board {
@@ -54,5 +56,33 @@ public class Board {
             }
         }
         return true;
+    }
+
+    public List<String> getCellsContentAsString() {
+        List<String> cellsContent = new ArrayList<>();
+        for (Map.Entry<String, Cell> entry : cells.entrySet()) {
+            Cell cell = entry.getValue();
+            switch (cell.getContent()) {
+                case CROSS:
+                    cellsContent.add("X");
+                    break;
+                case NOUGHT:
+                    cellsContent.add("O");
+                    break;
+                case EMPTY:
+                    cellsContent.add(" ");
+                    break;
+            }
+        }
+        return cellsContent;
+    }
+
+    public List<Seed> getCellsContentAsSeed() {
+        List<Seed> cellsContent = new ArrayList<>();
+        for (Map.Entry<String, Cell> entry : cells.entrySet()) {
+            Cell cell = entry.getValue();
+            cellsContent.add(cell.getContent());
+            }
+        return cellsContent;
     }
 }

@@ -1,7 +1,6 @@
 package Game;
 
 import Board.Board;
-import Cell.CellNotEmptyException;
 import Cell.Seed;
 
 import java.util.Arrays;
@@ -46,10 +45,6 @@ public class Game {
 
     private Seed chooseRandomPlayer() {
         return PLAYERS.get(RANDOM.nextInt(SIZE));
-    }
-
-    public void fillCell(Seed player, String coordinates) throws CellNotEmptyException, IndexOutOfBoundsException {
-        board.fillCell(player, coordinates);
     }
 
     public void updateGameState() {
