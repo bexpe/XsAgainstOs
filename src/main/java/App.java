@@ -36,7 +36,7 @@ class App {
             message.playerInputMessage(game);
             String coordinates = input.turnInput();
             try {
-                game.fillCell(game.getCurrentPlayer(), coordinates);
+                game.getBoard().fillCell(game.getCurrentPlayer(), coordinates);
                 game.updateGameState();
                 game.changePlayer();
             } catch (CellNotEmptyException | IndexOutOfBoundsException e) {

@@ -48,10 +48,6 @@ public class Game {
         return PLAYERS.get(RANDOM.nextInt(SIZE));
     }
 
-    public void fillCell(Seed player, String coordinates) throws CellNotEmptyException, IndexOutOfBoundsException {
-        board.fillCell(player, coordinates);
-    }
-
     public void updateGameState() {
         if (board.hasWon()) {
             switch (getCurrentPlayer()) {
