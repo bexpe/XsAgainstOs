@@ -39,7 +39,7 @@ class App {
                 game.fillCell(game.getCurrentPlayer(), coordinates);
                 game.updateGameState();
                 game.changePlayer();
-            } catch (CellNotEmptyException e) {
+            } catch (CellNotEmptyException | IndexOutOfBoundsException e) {
                 message.moveNotValidMessage();
             }
         }

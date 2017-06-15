@@ -48,7 +48,7 @@ public class Game {
         return PLAYERS.get(RANDOM.nextInt(SIZE));
     }
 
-    public void fillCell(Seed player, String coordinates) throws CellNotEmptyException {
+    public void fillCell(Seed player, String coordinates) throws CellNotEmptyException, IndexOutOfBoundsException {
         board.fillCell(player, coordinates);
     }
 

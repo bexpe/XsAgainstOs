@@ -35,7 +35,7 @@ public class Board {
         }
     }
 
-    public void fillCell(Seed seed, String inputCoordinates) throws CellNotEmptyException {
+    public void fillCell(Seed seed, String inputCoordinates) throws CellNotEmptyException, IndexOutOfBoundsException {
         String[] splitedCoordinates = inputCoordinates.split("\\s+");
         if (Integer.parseInt(splitedCoordinates[0]) > MAX_ROW_INDEX || Integer.parseInt(splitedCoordinates[1]) > MAX_COL_INDEX) {
             throw new IndexOutOfBoundsException("BoardPrinter size is 3 x 3");
