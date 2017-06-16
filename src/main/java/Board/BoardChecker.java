@@ -10,26 +10,29 @@ class BoardChecker {
 
 
     Boolean hasWon(Board board) {
-        if (checkHorizontal(board)) {
+        if (isHorizontalStateWinning(board)) {
             return true;
-        } else if (checkVertical(board)) {
+        } else if (isVerticalStateWinning(board)) {
             return true;
-        } else if (checkRightDiagonal(board)) {
+        } else if (isRightDiagonalStateWinning(board)) {
             return true;
-        } else if (checkLeftDiagonal(board)) {
+        } else if (isLeftDiagonalStateWinning(board)) {
             return true;
         }
         return false;
     }
 
-    private Boolean checkHorizontal(Board board) {
+    private Boolean isHorizontalStateWinning(Board board) {
         List<Seed> cellsContent = board.getCellsContentAsSeed();
 
         for (Integer index = 0;
              index < cellsContent.size();
              index += board.getMAX_COL_INDEX()
                 ) {
-            if (new HashSet<>(cellsContent.subList(index, index + board.getMAX_COL_INDEX())).size() == 1 &&
+            if (new HashSet<>(
+                        cellsContent.
+                        subList(index, index + board.getMAX_COL_INDEX())).
+                        size() == 1 &&
                     cellsContent.get(index) != Seed.EMPTY) {
                 return true;
             }
@@ -37,7 +40,7 @@ class BoardChecker {
         return false;
     }
 
-    private Boolean checkVertical(Board board) {
+    private Boolean isVerticalStateWinning(Board board) {
         List<Seed> cellsContent = board.getCellsContentAsSeed();
 
         for (Integer colIndex = 0; colIndex < board.getMAX_COL_INDEX(); colIndex++) {
@@ -56,7 +59,7 @@ class BoardChecker {
         return false;
     }
 
-    private Boolean checkLeftDiagonal(Board board) {
+    private Boolean isLeftDiagonalStateWinning(Board board) {
         List<Seed> cellsContent = board.getCellsContentAsSeed();
         List<Seed> diagonalList = new ArrayList<>();
 
@@ -70,7 +73,7 @@ class BoardChecker {
                 !diagonalList.contains(Seed.EMPTY);
     }
 
-    private Boolean checkRightDiagonal(Board board) {
+    private Boolean isRightDiagonalStateWinning(Board board) {
         List<Seed> cellsContent = board.getCellsContentAsSeed();
         List<Seed> diagonalList = new ArrayList<>();
 
