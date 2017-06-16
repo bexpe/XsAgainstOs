@@ -35,9 +35,9 @@ class MessageTest {
     void testIfMenuMessagePrintsProperText() {
         message.menuMessage();
         assertEquals(
-                "1. Play the game\n" +
-                        "2. Exit\n" +
-                        "Choose option: \n", outContent.toString());
+                    "1. Play the game\n" +
+                    "2. Exit\n" +
+                    "Choose option: \n", outContent.toString());
     }
 
     @Test
